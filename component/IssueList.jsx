@@ -21,16 +21,36 @@ const IssueList = ({ onSelectIssue }) => {
       });
   }, []);
 
+  //   return (
+  //     <div>
+  //       <h2>Issues</h2>
+  //       <ul>
+  //         {issues.map((issue) => (
+  //           <li key={issue.id} onClick={() => onSelectIssue(issue.id)}>
+  //             {issue.title}
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //   );
+
   return (
-    <div>
-      <h2>Issues</h2>
-      <ul>
+    <div className="issues-container">
+      <h2>GitHub Issues</h2>
+      <div className="scrollable-list">
         {issues.map((issue) => (
-          <li key={issue.id} onClick={() => onSelectIssue(issue.id)}>
-            {issue.title}
-          </li>
+          <div
+            key={issue.id}
+            className="issue-item"
+            onClick={() => onSelectIssue(issue.id)}
+          >
+            <h3>{issue.title}</h3>
+            <p>
+              #{issue.number} opened by {issue.user.login}
+            </p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
