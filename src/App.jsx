@@ -4,6 +4,7 @@ import Navbar from "../component/Nabvar";
 import UserQuery from "../component/UserQuery";
 import IssueList from "../component/IssueList";
 import IssueDetail from "../component/IssueDetail";
+import IssueSummary from "../component/IssueSummary";
 
 // function App() {
 //   const [selectedIssueId, setSelectedIssueId] = useState(null);
@@ -55,7 +56,13 @@ function App() {
         </div>
 
         {/* Right Side (Can be expanded in future) */}
-        <div className="main-content"></div>
+        <div className="main-content" style={{ color: "black" }}>
+          {selectedIssue ? (
+            <IssueSummary issueId={selectedIssue} />
+          ) : (
+            <div>Please select an issue to see the summary.</div>
+          )}
+        </div>
       </div>
     </>
   );
